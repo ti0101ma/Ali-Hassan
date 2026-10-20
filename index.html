@@ -470,7 +470,7 @@
                 <div class="pulse-dot"></div>
                 <span>AI: <strong id="accuracyRate">98.4</strong>%</span>
             </div>
-            <div class="user-balance" onclick="playBeep(600, 0.05); openModal();" id="balanceDisplay">💰 500 ل.د</div>
+            <div class="user-balance" onclick="playBeep(600, 0.05); openModal();" id="balanceDisplay">💰 30 ل.د</div>
         </div>
     </header>
 
@@ -576,7 +576,7 @@
         }
 
         let currentGame = '';
-        let currentBalance = 500;
+        let currentBalance = 30;
         let predictionClicks = 0;
 
         const winnerNames = [
@@ -589,7 +589,7 @@
         function generateRandomWinnerObj() {
             const name = winnerNames[Math.floor(Math.random() * winnerNames.length)];
             const game = winnerGames[Math.floor(Math.random() * winnerGames.length)];
-            const amount = (Math.floor(Math.random() * 850) + 150).toLocaleString('ar-LY') + " ل.د";
+            const amount = (Math.floor(Math.random() * 250) + 30).toLocaleString('ar-LY') + " ل.د";
             return { name, game, amount };
         }
 
@@ -652,7 +652,7 @@
         }, 3500);
 
         function updateBalanceUI() {
-            document.getElementById('balanceDisplay').textContent = `💰 ${currentBalance.toLocaleString('ar-LY')} ل.د`;
+            document.getElementById('balanceDisplay').textContent = `💰 ${currentBalance} ل.د`;
         }
 
         function openGame(gameName) {
@@ -719,7 +719,7 @@
 
         function triggerPrediction() {
             if (currentBalance > 0) {
-                currentBalance -= 100;
+                currentBalance -= 10;
                 if (currentBalance < 0) currentBalance = 0;
                 updateBalanceUI();
             }
